@@ -13,7 +13,6 @@ from .utils import (
     validate_mLSTM_params,
 )
 
-from get_rep_models import mLSTM1900_gr, mlstm256_gr, mlstm64_gr
 # instantiate the mLSTM
 
 def rep_same_lengths_PCK(
