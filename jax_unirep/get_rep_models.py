@@ -25,7 +25,7 @@ def mLSTM1900_gr():
         AAEmbedding(10),
         mLSTM(1900),
         )
-    init_fun, apply_fun = serial(*model_layers)
+    return init_fun, apply_fun = serial(*model_layers)
     
 def mlstm1900():
     """Return mLSTM1900 model's initialization and forward pass functions.
