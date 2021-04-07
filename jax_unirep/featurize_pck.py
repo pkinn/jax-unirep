@@ -192,7 +192,7 @@ def get_reps_pck(
     seqs: Union[str, Iterable[str]],
     params: Optional[Dict] = None,
     mlstm_size: Optional[str] = 1900,
-    apply_fun,
+    apply_fun = None
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """
     Get reps of proteins.
