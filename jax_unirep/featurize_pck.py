@@ -263,7 +263,7 @@ def get_reps_pck(
     # 1. All sequences in the list have the same length
     # 2. There are sequences of different lengths in the list
     if len(set([len(s) for s in seqs])) == 1:
-        h_avg, h_final, c_final = rep_same_lengths(
+        h_avg, h_final, c_final = rep_same_lengths_PCK(
             seqs,
             params,
             apply_fun,
