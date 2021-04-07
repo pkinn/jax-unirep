@@ -189,10 +189,11 @@ def get_reps(
         return h_avg, h_final, c_final
 
 def get_reps_pck(
+    apply_fun,
     seqs: Union[str, Iterable[str]],
     params: Optional[Dict] = None,
     mlstm_size: Optional[str] = 1900,
-    apply_fun: Optional[function] = None,
+
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """
     Get reps of proteins.
