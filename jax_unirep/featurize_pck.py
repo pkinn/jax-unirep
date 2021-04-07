@@ -13,6 +13,7 @@ from .utils import (
     validate_mLSTM_params,
 )
 
+from get_rep_models import mLSTM1900_gr, mlstm256_gr, mlstm64_gr
 # instantiate the mLSTM
 
 def rep_same_lengths_PCK(
@@ -191,6 +192,7 @@ def get_reps_pck(
     seqs: Union[str, Iterable[str]],
     params: Optional[Dict] = None,
     mlstm_size: Optional[str] = 1900,
+    apply_fun,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """
     Get reps of proteins.
@@ -236,7 +238,8 @@ def get_reps_pck(
     in the order `h_avg`, `h_final`, and `c_final`.
     Each `np.array` has shape (n_sequences, mlstm_size).
     """
-    _, apply_fun = mLSTM(output_dim=mlstm_size)
+    # _, apply_fun = mLSTM(output_dim=mlstm_size)
+    
     if params is None:
         params = load_params()
     
