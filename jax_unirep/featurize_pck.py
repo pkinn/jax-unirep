@@ -94,7 +94,7 @@ def rep_same_lengths_64_exp(
     h_final, c_final, h, out = fapp7_out
     h_avg = h.mean(axis=1)
 
-    return np.array(h_avg), np.array(h_final), np.array(c_final), out_list, 
+    return np.array(h_avg), np.array(h_final), np.array(c_final), out_list
 
 
 def rep_same_lengths(
