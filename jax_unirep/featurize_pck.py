@@ -350,10 +350,11 @@ def get_reps_pck_emb(
     
     if params is None:
         params = load_params()
+        params = params[1:-3]    
     
     #Cut the last three layers from the params, which correspond to the last 
     #mLSTMHiddenState() layer, the Dense() layer, and the Softmax() layer
-    params = params[:-3]    
+
     
     # Check that params have correct keys and shapes
     # validate_mLSTM_params(params, n_outputs=mlstm_size)
