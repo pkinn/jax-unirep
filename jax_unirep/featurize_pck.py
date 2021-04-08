@@ -89,11 +89,12 @@ def rep_same_lengths_64_exp(
     fapp6_out = vmap(partial(fapp6,params[5]))(fapp5_out)
     fapp7_out = vmap(partial(fapp7,params[6]))(fapp6_out)
     
+    out_list = [fapp1_out, fapp2_out, fapp3_out, fapp4_out, fapp5_out, fapp6_out, fapp7_out]
 
     h_final, c_final, h = fapp7_out
     h_avg = h.mean(axis=1)
 
-    return np.array(h_avg), np.array(h_final), np.array(c_final)
+    return np.array(h_avg), np.array(h_final), np.array(c_final), 
 
 
 def rep_same_lengths(
@@ -486,8 +487,8 @@ def get_reps_pck_exp(
     # 1. All sequences in the list have the same length
     # 2. There are sequences of different lengths in the list
     if len(set([len(s) for s in seqs])) == 1:
-        h_avg, h_final, c_final = rep_same_lengths_64_exp(seqs, params)
-        return h_avg, h_final, c_final
+        h_avg, h_final, c_final, fapp_out = rep_same_lengths_64_exp(seqs, params)
+        return h_avg, h_final, c_final, fapp_out
     else:
         h_avg, h_final, c_final = rep_arbitrary_lengths(
             seqs, params, apply_fun, mlstm_size
