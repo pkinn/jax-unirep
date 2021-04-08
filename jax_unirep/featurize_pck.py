@@ -80,13 +80,13 @@ def rep_same_lengths_64_exp(
 
     fapp1_out = vmap(partial(fapp1,params[0]))(embedded_seqs)
     
-    fapp2_out = vmap(fapp2)(fapp1_out)
+    fapp2_out = vmap(partial(fapp2,params[1]))(fapp1_out)
     fapp3_out = vmap(partial(fapp3,params[2]))(fapp2_out)
     
-    fapp4_out = vmap(fapp4)(fapp3_out)
+    fapp4_out = vmap(partial(fapp4,params[3]))(fapp3_out)
     fapp5_out = vmap(partial(fapp5,params[4]))(fapp4_out)
     
-    fapp6_out = vmap(fapp6)(fapp5_out)
+    fapp6_out = vmap(partial(fapp6,params[5]))(fapp5_out)
     fapp7_out = vmap(partial(fapp7,params[6]))(fapp6_out)
     
 
